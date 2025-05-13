@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Midgard - A Sombra do Caçador</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Fauna+One&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blood-red: #8b0000;
+      --frost-blue: #4682b4;
+      --raven-black: #0a0a0a;
+      --snow-white: #f8f8f8;
+      --golden-rune: #daa520;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(to bottom, #000000, #0a0a0a);
+      color: var(--snow-white);
+      font-family: 'Fauna One', serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 3rem;
+      letter-spacing: 2px;
+      margin-bottom: 1.5rem;
+      color: var(--snow-white);
+      text-shadow: 0 0 10px var(--blood-red);
+      position: relative;
+    }
+ h1:after {
+      content: "ᛅ ᛋᚢᛘᛒᚱᛅ ᛏᚢ ᚴᛅᚴᛅᛏᚢᚱ";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.4em;
+      letter-spacing: 5px;
+      color: var(--golden-rune);
+      text-shadow: 0 0 5px var(--ancient-rune-glow);
+    }
+    .story-container {
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      background: rgba(10, 10, 10, 0.7);
+      border: 1px solid var(--blood-red);
+      border-radius: 5px;
+      box-shadow: 0 0 20px rgba(139, 0, 0, 0.3);
+    }
+
+    .story-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.8rem;
+      color: var(--golden-rune);
+      margin-bottom: 1rem;
+      text-shadow: 0 0 5px rgba(218, 165, 32, 0.5);
+    }
+
+    .story-text {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      text-align: justify;
+      color: #cccccc;
+      margin-bottom: 1rem;
+    }
+
+    .divider {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--blood-red), transparent);
+      margin: 1.5rem 0;
+      border: none;
+    }
+
+    .snowflake {
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: fall linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes fall {
+      to { transform: translateY(100vh); }
+    }
+
+    .fade-in {
+      animation: fadeIn 2s ease-in forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <h1 class="fade-in">A SombRA DO CAÇADOR</h1>
+  
+  <div class="story-container fade-in">
+    <h2 class="story-title">A Profecia dos Três Invernos</h2>
+    
+    <hr class="divider">
+    
+    <p class="story-text">O Nastravik  chegou. Três invernos sem fim cobriram Midgard de gelo e escuridão. Nas florestas congeladas, criaturas antigas despertaram de seu longo sono.</p>
+    
+    <p class="story-text">Você foi marcado pelo Valknut, o selo dos mortos honrados. Seu machado rúnico brilha na escuridão, sua capa esconde você dos olhos do além. Cada monstro derrotado traz um sopro de esperança a este mundo moribundo.</p>
+    
+    <p class="story-text">Mas lembre-se, caçador: quanto mais você adia o fim do mundo, mais se aproxima do seu próprio fim. Os deuses observam. Escolha sabiamente.</p>
+  </div>
+<iframe src="jogo/index.html" width="100%" height="600px"></iframe>
+  <script>
+    // Criação de neve
+    function createSnow() {
+      const snowflakeCount = 50;
+      
+      for (let i = 0; i < snowflakeCount; i++) {
+        const snowflake = document.createElement('div');
+        snowflake.classList.add('snowflake');
+        
+        const size = Math.random() * 5 + 2;
+        const posX = Math.random() * 100;
+        const delay = Math.random() * 5;
+        const duration = Math.random() * 10 + 10;
+        
+        snowflake.style.width = `${size}px`;
+        snowflake.style.height = `${size}px`;
+        snowflake.style.left = `${posX}vw`;
+        snowflake.style.animationDelay = `${delay}s`;
+        snowflake.style.animationDuration = `${duration}s`;
+        snowflake.style.opacity = Math.random() * 0.7 + 0.1;
+        
+        document.body.appendChild(snowflake);
+      }
+    }
+
+    // Inicialização
+    window.addEventListener('DOMContentLoaded', () => {
+      createSnow();
+      
+      // Corrige o título (remove letra duplicada)
+      const title = document.querySelector('h1');
+      title.textContent = "A SOMBRA DO CAÇADOR";
+    });
+  </script>
+</body>
+</html>
